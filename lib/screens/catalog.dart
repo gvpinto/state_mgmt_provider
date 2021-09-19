@@ -39,8 +39,9 @@ class _AddButton extends StatelessWidget {
     // this widget unless that particular part of the model changes.
     //
     // This can lead to significant performance improvements.
-    var isInCart =
-        context.select<CartModel, bool>((cart) => cart.items.contains(item));
+    var isInCart = context.select<CartModel, bool>(
+        // Here, we are only interested whether [item] is inside the cart.
+        (cart) => cart.items.contains(item));
 
     return TextButton(
       onPressed: isInCart
